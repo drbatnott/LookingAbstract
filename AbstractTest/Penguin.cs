@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace AbstractTest
 {
-    class Penguin : Bird
+    class Penguin : Bird , IBirdSong
     {
-        float m_volume; // this variable has class scope or can be called a member variable 
+        float m_Volume; // this variable has class scope or can be called a member variable 
+        float m_Frequency;// the warble frequency
         public override void birdCall()
         {
-            m_volume = 27.3f;
-            float lVolume = 2 * m_volume;
+            m_Volume = 27.3f;
+            float lVolume = 2 * m_Volume;
             //the local volume lVolume has only got method scope
             Console.WriteLine("Squuuuuaaaaakkkkkkkkkk at " + lVolume) ;
             //throw new NotImplementedException(); This was put in by VS but not needed
@@ -21,6 +22,28 @@ namespace AbstractTest
         public void birdNest(float f)// it has a different signature to the root
         {
             Console.WriteLine("zzzzzzzz at " + f);
+        }
+        /// <summary>
+        /// Set the bird warble frequency
+        /// </summary>
+        /// <param name="f">Is the number of times the call will be repeated
+        /// when the bird warbles.</param>
+        public void Frequency(float f)
+        {
+            m_Frequency = f;
+        }
+        /// <summary>
+        /// Warble will repeat the birdCall for the number of times set
+        /// by the frequency m_Frequency
+        /// </summary>
+        public void Warble()
+        {
+            float f = m_Frequency;
+            while(f > 0)
+            {
+                birdCall();
+                f -= 0.5f;
+            }
         }
     }
 }

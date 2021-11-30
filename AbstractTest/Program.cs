@@ -16,6 +16,8 @@ namespace AbstractTest
             //This implements polymorphism of the function birdNest
             emperor.birdNest();//this will call the base version of 
             emperor.birdNest(10f);//this calls the overloaded version
+            emperor.Frequency(2f);//Penguin class implemented the Frequency interface method
+            emperor.Warble();//Penguin class implents the Warble interface method
             Console.ReadLine();
         }
     }
