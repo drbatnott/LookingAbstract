@@ -8,11 +8,23 @@ namespace AbstractTest
 {
     class Penguin : Bird
     {
-        float m_volume; // this variable has class scope or can be called a member variable 
+        /// <summary>
+        /// Penguin class implements the Bird abstract class
+        /// it overloads the birdNest method of the Bird class
+        /// it overrides the abstract method birdCall of the Bird class
+        /// it has a Global accessor Property Volume which allows outside programs to 
+        /// read the value of the class variable m_volume which has class scope
+       
+        float m_Volume; // this variable has class scope or can be called a member variable 
+        /// </summary>
+        public float Volume//Volume property is encapsulated in Penguin but has global scope
+        {
+            get { return m_Volume; }
+        }
         public override void birdCall()
         {
-            m_volume = 27.3f;
-            float lVolume = 2 * m_volume;
+            m_Volume = 27.3f;
+            float lVolume = 2 * m_Volume;
             //the local volume lVolume has only got method scope
             Console.WriteLine("Squuuuuaaaaakkkkkkkkkk at " + lVolume) ;
             //throw new NotImplementedException(); This was put in by VS but not needed
